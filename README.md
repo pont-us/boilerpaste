@@ -5,6 +5,29 @@ boilerpaste is a tool to insert and update blocks of boilerplate
 text in files. It's mainly intended for managing license text
 block in source code files.
 
+Usage
+-----
+
+`boilerplate.py <boilerplate-file> <source-file> ...`
+
+All arguments are names of text files.
+
+The boilerplate file contains a chunk of text to be inserted into
+each source file, possibly after removing a previous, corresponding
+chunk of boilerplate text.
+
+The first and last lines of the boilerplate file define the **delimiter
+lines** which are used to mark the chunk in the source files.
+
+Each source file is scanned for the delimiter lines. If they are
+found, the text between them is removed and replaced with the text
+in the boilerplate file. Files are modified in place.
+
+If no delimiter lines are found in a source code file, the boilerplate
+will be inserted after the first empty line. If there are no delimiter
+lines and no empty lines, the file will not be modified, and a warning
+will be printed.
+
 License
 -------
 
