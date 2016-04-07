@@ -8,7 +8,7 @@ block in source code files.
 Usage
 -----
 
-`boilerplate.py <boilerplate-file> <source-file> ...`
+`boilerpaste.py [--line <number>] <boilerplate-file> <source-file> ...`
 
 All arguments are names of text files.
 
@@ -19,14 +19,18 @@ chunk of boilerplate text.
 The first and last lines of the boilerplate file define the **delimiter
 lines** which are used to mark the chunk in the source files.
 
-Each source file is scanned for the delimiter lines. If they are
-found, the text between them is removed and replaced with the text
-in the boilerplate file. Files are modified in place.
+If the `--line` option is given, the boilerplate will be inserted
+before the given line number.
 
-If no delimiter lines are found in a source code file, the boilerplate
-will be inserted after the first empty line. If there are no delimiter
-lines and no empty lines, the file will not be modified, and a warning
-will be printed.
+If the `--line` option is not given, each source file is scanned for the
+delimiter lines. If they are found, the text between them is removed and
+replaced with the text in the boilerplate file. Files are modified in
+place.
+
+If `--line` is not given and no delimiter lines are found in a source
+code file, the boilerplate will be inserted after the first empty line.
+If there are no delimiter lines and no empty lines, the file will not be
+modified, and a warning will be printed.
 
 License
 -------
